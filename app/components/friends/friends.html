@@ -1,0 +1,19 @@
+<p>My name: {{ myName }}</p>
+ <p>Friends:</p>
+  <ul>
+     <li *ng-for="#name of names">
+        {{ name }}
+     </li>
+  </ul>
+  
+  <button (click)="removeFriend()">Friend Got Married</button>
+  <br>  
+    
+  <input #new-friend (keyup)="doneTyping($event,newFriend.value)"></input>
+  <p>{{newFriend.value}}</p>
+  <button (click)="addFriend($event, newFriend.value)">Add A Friend</button>
+
+  <p *ng-if="names.length == 0"> You have {{names.length}} friends</p>
+  <p *ng-if="names.length > 2"> You have many friends</p>
+  <p *ng-if="names.length <= 2 && names.length != 0"> You have not so many friends</p>
+  
